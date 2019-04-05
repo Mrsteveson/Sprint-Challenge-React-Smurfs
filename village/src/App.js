@@ -24,12 +24,10 @@ class App extends Component {
           smurfs: response.data
         })
       })
-      .catch(err => {
-        console.log(err);
-      })
+      .catch(err => console.log(err))
   }
 
-  // AddItem with Post request
+  // Add Smurf with Post request
   addItem = object => {
     axios
       .post('http://localhost:3333/smurfs', object)
@@ -39,11 +37,21 @@ class App extends Component {
           smurfs: response.data
         })
       })
-      .catch(err => {
-        console.log(err);
-      })
+      .catch(err => console.log(err))
   }
 
+  // Delete Smurf with Delete Request
+  deleteItem = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(response => {
+        console.log(response);
+        this.setState({
+          smurfs:response.data
+        })
+      })
+      .catch(err => console.log(err))
+  }
 
   // add any needed code to ensure that the smurfs collection exists on state and it has data coming from the server
   // Notice what your map function is looping over and returning inside of Smurfs.
@@ -71,6 +79,7 @@ class App extends Component {
           <Smurfs
             {...props}
             smurfs = {this.state.smurfs}
+            deleteItem = {this.deleteItem}
           />}
        />
       </div>

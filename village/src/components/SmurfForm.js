@@ -10,7 +10,7 @@ class SmurfForm extends Component {
     };
   }
 
-  // AddItem with Post request
+  // Add Smurf with Post request
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
