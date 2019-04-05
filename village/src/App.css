@@ -57,6 +57,7 @@
 
 .Smurfs h1 {
   border: 3px solid black;
+  border-radius: 15px;
   background: lightblue;
   width: 100%;
   padding: 10px;
@@ -64,6 +65,7 @@
 
 .Smurfs ul {
   width: 400px;
+  padding: 0;
 }
 
 .Smurf {

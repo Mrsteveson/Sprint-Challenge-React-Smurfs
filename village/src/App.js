@@ -27,7 +27,7 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
-  // Add Smurf with Post request
+  // Add Smurf with Post Request
   addItem = object => {
     axios
       .post('http://localhost:3333/smurfs', object)
@@ -47,7 +47,20 @@ class App extends Component {
       .then(response => {
         console.log(response);
         this.setState({
-          smurfs:response.data
+          smurfs: response.data
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  // Update Smurf with Put Request
+  updateItem = (id, object) => {
+    axios
+      .put(`http://localhost:3333/smurfs/${id}`, object)
+      .then(response => {
+        console.log(response);
+        this.setState({
+          smurfs: response.data
         })
       })
       .catch(err => console.log(err))
